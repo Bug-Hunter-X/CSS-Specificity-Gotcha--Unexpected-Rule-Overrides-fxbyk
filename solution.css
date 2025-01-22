@@ -1,0 +1,28 @@
+One solution is to be mindful of CSS specificity and use more precise selectors.  Another approach is to reorder rules, or add `!important` (use sparingly!), but this is less ideal for maintainability.
+
+Here's an improved approach:
+
+```css
+div {
+  color: blue;
+}
+
+p {
+  color: red;
+}
+
+/*More explicit selector to avoid specificity conflict*/
+div > p {
+  color: green;
+}
+
+div > p:first-child {
+  color: yellow; 
+}
+
+/*Consider using classes for better control*/
+div.container p {
+    color: purple; 
+}
+```
+By using more precise selectors, you have more control over which styles are applied and avoid unexpected overrides due to the pseudo-classes.
