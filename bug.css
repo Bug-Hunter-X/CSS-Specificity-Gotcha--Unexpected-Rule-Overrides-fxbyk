@@ -1,0 +1,21 @@
+The following CSS code snippet demonstrates an uncommon issue related to specificity and inheritance:
+
+```css
+div {
+  color: blue;
+}
+
+p {
+  color: red;
+}
+
+div p {
+  color: green; /* This rule is overridden by the following rule */
+}
+
+div p:first-child {
+  color: yellow; /* This is more specific and overrides the previous rule */
+}
+```
+
+The problem arises due to the unexpected behavior of specificity. Although the `div p` rule targets `p` elements within `div` elements, the `div p:first-child` rule has higher specificity because of the `:first-child` pseudo-class.  This can be counterintuitive if one expects the closest ancestor rule to always win.
